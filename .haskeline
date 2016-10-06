@@ -1,0 +1,25 @@
+# Used by haskell ghci
+# http://trac.haskell.org/haskeline/wiki/CustomKeyBindings
+
+maxhistorysize: Just 10000
+editMode: Emacs
+completionType: MenuCompletion
+historyDuplicates: IgnoreConsecutive
+
+keyseq: "\ESC[1;3D" meta-left
+keyseq: "\ESC[1;3C" meta-right
+keyseq: "\ESC[1;5D" ctrl-left
+keyseq: "\ESC[1;5C" ctrl-right
+keyseq: "\ESC[3;3~" meta-delete
+keyseq: "\ESC[3;5~" ctrl-delete
+# The following is a hijackey keycode that requires
+# separate terminal/iTerm mapping.
+keyseq: "\ESC[72;8;5~" ctrl-backspace
+
+bind: meta-left meta-b
+bind: meta-right meta-f
+bind: ctrl-left ctrl-a
+bind: ctrl-right ctrl-e
+bind: meta-delete meta-d
+bind: ctrl-delete ctrl-k
+bind: ctrl-backspace killline

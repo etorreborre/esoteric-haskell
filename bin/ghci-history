@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Use this by typing in ghci:
+# :!ghci-history
+# which will copy the select command to the clipboard
+# Then you can paste the command as normal.
+
+# Copied from ~/.fzf/shell/key-bindings.bash
+__fzfcmd() {
+  [ "${FZF_TMUX:-1}" != 0 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
+}
+
+# Modified to `cat "$HOME/.ghci/ghci_history"`
+__fzf_ghci_history__() {
+  cat "$HOME/.ghc/ghci_history" |
+    eval "$(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index --toggle-sort=ctrl-r $FZF_CTRL_R_OPTS"
+}
+
+cmd=$(__fzf_ghci_history__)
+if [[ "$OSTYPE" = "darwin"* ]]; then
+    echo -n $cmd | pbcopy
+else
+    echo -n $cmd | xclip -selection clipboard
+fi
+
+echo "Copied to clipboard: $cmd"

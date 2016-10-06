@@ -1,0 +1,18 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# # Haskell cabal
+# if [ -d "$HOME/.cabal/bin" ]; then
+#     PATH="$HOME/.cabal/bin:$PATH"
+# fi
+# if [ -d "$HOME/.cabal-sandbox/bin" ]; then
+#     PATH="$HOME/.cabal-sandbox/bin:$PATH"
+# fi
+
+# Haskell Stack
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
