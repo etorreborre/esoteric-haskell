@@ -42,4 +42,4 @@ append_source() {
 
 link "$SOURCE_DIR/.haskeline" "$HOME/.haskeline"
 append_source "$SOURCE_DIR/.bashrc.haskell" "$HOME/.bashrc.after.local"
-append_source "$SOURCE_DIR/bin/path.bash_profile" "$HOME/.bash_profile"
+append_source "$SOURCE_DIR/bin/path.bash_profile" "$HOME/.bash_profile.before.local"
