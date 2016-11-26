@@ -19,9 +19,9 @@ steps:
   # and only applies to statements where each element occupies a single
   # line.
   - simple_align:
-      cases: true
-      top_level_patterns: true
-      records: true
+      cases: false
+      top_level_patterns: false
+      records: false
 
   # Import cleanup
   - imports:
@@ -87,8 +87,26 @@ steps:
       # Default: inline
       long_list_align: multiline
 
+      # Align empty list (importing instances)
+      #
+      # Empty list align has following options
+      #
+      # - inherit: inherit list_align setting
+      #
+      # - right_after: () is right after the module name:
+      #
+      #   > import Vector.Instances ()
+      #
+      # Default: inherit
+      empty_list_align: inherit
+
       # List padding determines indentation of import list on lines after import.
-      # This option affects 'list_align' and 'long_list_align'.
+      # This option affects 'long_list_align'.
+      #
+      # - <integer>: constant value
+      #
+      # - module_name: align under start of module name.
+      #   Useful for 'file' and 'group' align settings.
       list_padding: 4
 
       # Separate lists option affects formating of import list for type
