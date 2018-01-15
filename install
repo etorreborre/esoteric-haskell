@@ -17,7 +17,7 @@ link() {
     if [ "$1" -ef "$2" ]; then
         [ -z "$VERBOSE" ] || echo "Already linked \"$2\" to \"$1\""
     else
-        ( echo "linking \"$2\" to \"$1\"" && ln -s "$1" "$2" )
+        ( echo "linking \"$2\" to \"$1\"" && mkdir -p $(dirname "$2") && ln -s "$1" "$2" )
     fi
 }
 
@@ -43,5 +43,6 @@ append_source() {
 link "$SOURCE_DIR/.haskeline" "$HOME/.haskeline"
 link "$SOURCE_DIR/.stylish-haskell.yaml" "$HOME/.stylish-haskell.yaml"
 link "$SOURCE_DIR/.hindent.yaml" "$HOME/.hindent.yaml"
+link "$SOURCE_DIR/Library/Application Support/Code/User/snippets/haskell.json" "$HOME/Library/Application Support/Code/User/snippets/haskell.json"
 append_source "$SOURCE_DIR/.bashrc.haskell" "$HOME/.bashrc.after.local"
 append_source "$SOURCE_DIR/bin/path.bash_profile" "$HOME/.bash_profile.before.local"

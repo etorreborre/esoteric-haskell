@@ -186,5 +186,6 @@ newline: native
 # No language extensions are enabled by default.
 language_extensions:
   - ApplicativeDo
+  - MultiParamTypeClasses
   # - TemplateHaskell
   # - QuasiQuotes
